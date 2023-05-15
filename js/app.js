@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const email = {
         email: '',
-        cc: '',
         asunto: '',
         mensaje: ''
     }
@@ -62,8 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function validar(e) {
-        console.log(e.target.value);
-
         if (e.target.value.trim() === '' && e.target.id !== 'cc') {
             mostrarAlerta(`El campo ${e.target.id} es obligatorio`, e.target.parentElement);
             email[e.target.id] = '';
@@ -73,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         else if (e.target.value.trim() === '' && e.target.id === 'cc') {
             limpiarAlerta(e.target.parentElement);
-            email[e.target.id] = '';
             comprobarEmail();
             return;
         }
@@ -91,9 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
             comprobarEmail();
             return;
         }
-
-        
-
 
         limpiarAlerta(e.target.parentElement);
 
